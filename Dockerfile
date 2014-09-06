@@ -7,9 +7,9 @@ FROM dockerimages/ubuntu-core:14.04
 MAINTAINER Frank Lemanschik
 
 # Install Java and maven
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
-deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse \n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse \n\
+deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse \n\
 deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse" > /etc/apt/sources.list \
  && apt-get update \
  && apt-get install openjdk-7-jdk maven \
