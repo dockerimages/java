@@ -13,5 +13,5 @@ RUN apt-get update \
  && echo "Default DNS cache TTL is -1. DNS records, like, change, man." \
  && grep '^networkaddress.cache.ttl=' /etc/java-7-openjdk/security/java.security || echo 'networkaddress.cache.ttl=6000' >> /etc/java-7-openjdk/security/java.security
  
-ENV DOCKER_RUN
+ENV DOCKER_RUN echo "uuuhh"
 ENV DOCKER_BUILD docker build -t dockerimages/java git://github.com/dockerimages/java
