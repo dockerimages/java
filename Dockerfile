@@ -1,13 +1,17 @@
 # Base image with Java and Maven
 #
-# VERSION       2
+# VERSION       3
 
 FROM dockerimages/ubuntu-core:14.04
 
 MAINTAINER Frank Lemanschik
 
 # Install Java and maven
-RUN apt-get update \
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt trusty main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-updates main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-backports main restricted universe multiverse
+deb mirror://mirrors.ubuntu.com/mirrors.txt trusty-security main restricted universe multiverse" > /etc/apt/sources.list \
+ && apt-get update \
  && apt-get install openjdk-7-jdk maven \
  && ln -s /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/amd64/server/libjvm.so /usr/lib/libjvm.so \
  && echo "Default DNS cache TTL is -1. DNS records, like, change, man." \
